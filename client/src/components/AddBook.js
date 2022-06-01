@@ -25,7 +25,6 @@ export default function AddBook() {
 
     function addBookForm(e) {
         e.preventDefault();
-        console.log(bookName, genre, author);
         addBook({
             variables: {
                 name: bookName,
