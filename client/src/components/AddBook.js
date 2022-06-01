@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { getAuthorsQuery, addBookMutation } from '../queries/queries';
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
 
 export default function AddBook() {
     // Get form's data
@@ -32,6 +32,7 @@ export default function AddBook() {
                 genre: genre,
                 authorId: author,
             },
+            refetchQueries: [{ query: getBooksQuery }],
         });
     }
 
@@ -73,7 +74,7 @@ export default function AddBook() {
                 </select>
             </div>
 
-            <button>+</button>
+            <button>Add Book</button>
         </form>
     );
 }
